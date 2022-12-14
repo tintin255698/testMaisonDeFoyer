@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EtabController!{% endblock %}
+
+{% block body %}
+
+    {{ form(form) }}
+    <button id="reset">Reset</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom de l'établissement</th>
+            <th>Type</th>
+            <th>Adresse</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Détail</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for etab in etabs %}
+        <tr>
+            <td>{{ etab.name }}</td>
+            <td>{{ etab.type }}</td>
+            <td>{{ etab.adresse }}</td>
+            <td>{{ etab.code }}</td>
+            <td>{{ etab.city }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        document.querySelector('#type_form_chercher').style.display = 'none';
+        document.querySelectorAll('label')[0].style.display = 'none';
+        document.querySelectorAll('label')[1].style.display = 'none';
+        const reset = document.querySelector('#reset');
+        $(document).ready(function() {
+            $("#reset").click(function() {
+                $(location).prop("href", location.href);
+            })
+        });
+    </script>
+{% endblock %}
