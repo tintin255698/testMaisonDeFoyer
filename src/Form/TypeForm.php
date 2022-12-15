@@ -20,7 +20,7 @@ class TypeForm extends AbstractType
                 ],
             ])
             ->add('chercher', \Symfony\Component\Form\Extension\Core\Type\SearchType::class, [
-                'required' => false])
+                'required' => true])
             ->add('rechercher', SubmitType::class)
         ;
 
