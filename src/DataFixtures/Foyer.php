@@ -16,11 +16,8 @@ class Foyer extends Fixture
         $number = rand(20, 40);
         $slug = new Slugify();
         function getRandomStr($n) {
-            // Stockez toutes les lettres possibles dans une chaîne.
             $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $randomStr = '';
-
-            // Générez un index aléatoire de 0 à la longueur de la chaîne -1.
             for ($i = 0; $i < $n; $i++) {
                 $index = rand(0, strlen($str) - 1);
                 $randomStr .= $str[$index];
@@ -28,8 +25,6 @@ class Foyer extends Fixture
 
             return $randomStr;
         }
-
-
 
         $arr = ["EHPAD", "Résidence Services Seniors"];
 
@@ -47,8 +42,6 @@ class Foyer extends Fixture
             $auxerre->setSlug($slug->slugify($name));
             $manager->persist($auxerre);
         }
-
-
 
             for ($i = 0; $i < 4; $i++) {
                 $joigny = new Maison();

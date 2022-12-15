@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre établissement{% endblock %}
+
+{% block body %}
+
+    {% for detail in details %}
+
+    <h1>Bienvenue dans notre établissement {{ detail.name }} - {{ detail.type }} </h1>
+
+        <img src="{{ detail.image }}" alt="{{ detail.name }}">
+
+        <p>Nous vous proposons : </p>
+        <p>{{ detail.content }}</p>
+
+        <p>Nous localiser: </p>
+        <ul>
+            <li>{{ detail.adresse }}</li>
+            <li>{{ detail.code }} {{ detail.city }}</li>
+        </ul>
+
+        <p>Nous contacter : </p>
+        {{ form(formContact) }}
+        
+    {% endfor %}
+{% endblock %}

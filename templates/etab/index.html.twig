@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EtabController!{% endblock %}
+{% block title %}Liste des établissements{% endblock %}
 
 {% block body %}
 
@@ -25,6 +25,7 @@
             <td>{{ etab.adresse }}</td>
             <td>{{ etab.code }}</td>
             <td>{{ etab.city }}</td>
+            <td><a href="{{ path('detail',{'slug':etab.slug}) }}">Voir</a></td>
         </tr>
         {% endfor %}
         </tbody>
