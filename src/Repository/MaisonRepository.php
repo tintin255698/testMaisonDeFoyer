@@ -24,8 +24,8 @@ class MaisonRepository extends ServiceEntityRepository
     public function search($search, $type): ?array
     {
       $query = $this->createQueryBuilder('m');
-              $query->where('MATCH_AGAINST(m.name, m.city, m.adresse) AGAINST (:mots boolean) > 0')
-                  ->setParameter('mots', $search)
+              $query->where('MATCH_AGAINST(m.name, m.city, m.adresse) AGAINST (:search boolean) > 0')
+                  ->setParameter('search', $search)
                   ->andWhere('m.type = :type' )
                   ->setParameter('type', $type);
           return $query->getQuery()->getResult()
