@@ -21,13 +21,13 @@ class MaisonRepository extends ServiceEntityRepository
         parent::__construct($registry, Maison::class);
     }
 
-    public function search($type): ?array
+    public function search($search, $type): ?array
     {
       $query = $this->createQueryBuilder('m');
-
-              $query->where('MATCH_AGAINST(m.type) AGAINST (:type boolean) > 0')
+              $query->where('MATCH_AGAINST(m.name, m.city, m.adresse) AGAINST (:mots boolean) > 0')
+                  ->setParameter('mots', $search)
+                  ->andWhere('m.type = :type' )
                   ->setParameter('type', $type);
-
           return $query->getQuery()->getResult()
 
         ;}

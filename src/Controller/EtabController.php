@@ -28,7 +28,8 @@ class EtabController extends AbstractController
 
         if($form->isSubmitted() AND $form->isValid()){
 
-            $allEtab = $maisonRepository->search($search->get('choix')->getData());
+            $allEtab = $maisonRepository->search($search->get('chercher')->getData(),
+                $search->get('choix')->getData());
         }
         return $this->render('etab/index.html.twig', [
             'etabs' => $allEtab,

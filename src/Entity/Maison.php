@@ -8,8 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 
 #[ORM\Entity(repositoryClass: MaisonRepository::class)]
-#[ORM\Index(columns: ['type'], name: 'maison', flags: ['fulltext'])]
-
+#[ORM\Index(columns: ["city", "name", "adresse" ] , name: 'maison', flags: ['fulltext'])]
 class Maison
 {
      public function __destruct()

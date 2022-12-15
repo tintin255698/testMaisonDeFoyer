@@ -13,7 +13,7 @@ class Foyer extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
-        $number = rand(20, 40);
+        $number = rand(100, 500);
         $slug = new Slugify();
         function getRandomStr($n) {
             $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
